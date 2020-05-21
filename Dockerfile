@@ -2,9 +2,24 @@ FROM ubuntu:focal
 
 LABEL Name=freeswitch-focal-build Version=0.0.1
 
-ENV DEBIAN_FRONTEND noninteractive
 
-ADD  setup.sh /opt/  
-RUN  /bin/bash /opt/setup.sh  
+ARG GITHUB_RUNNER_VERSION="2.165.2"
 
+ENV RUNNER_NAME "runner"
+ENV GITHUB_PAT ""
+ENV GITHUB_OWNER ""
+ENV GITHUB_REPOSITORY ""
+ENV RUNNER_WORKDIR "_work"
+
+
+
+USER github
+WORKDIR /home/github
+
+COPY --chown=github:github entrypoint.sh ./entrypoint.sh
+COPY --chown=github:github setup.sh ./setup.sh
+RUN  /bin/bash ./setup.sh  
+
+
+ENTRYPOINT ["/home/github/entrypoint.sh"]
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
 apt-get upgrade -y
@@ -22,10 +22,14 @@ bison libavresample-dev libopencv-dev libhiredis-dev ladspa-sdk libmemcached-dev
 libsoundtouch-dev libopencore-amrnb-dev  libcodec2-dev libmariadb-dev portaudio19-dev \
 librabbitmq-dev libsnmp-dev libmagickcore-dev libopusfile-dev libmp3lame-dev \
 libmpg123-dev libshout3-dev libvlc-dev default-jdk libmono-2.0-dev mono-mcs libyaml-dev \
-libldap2-dev wget curl aptly ca-certificates gpg awscli jq
+libldap2-dev wget curl aptly ca-certificates gpg awscli jq sudo git 
 
+apt-get clean 
+rm -rf /var/lib/apt/lists/* \
+useradd -m github \
+usermod -aG sudo github \
+echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+curl -Ls https://github.com/actions/runner/releases/download/v${GITHUB_RUNNER_VERSION}/actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz | tar xz && sudo ./bin/installdependencies.sh
 
-apt-key adv --recv-keys  6EC4A2C1F1FBA7B1
-
-echo "deb https://apt-repo.etechpro.co.uk/ focal freeswitch" > /etc/apt/sources.list.d/etechpro.list
+sudo chmod u+x ./entrypoint.sh
