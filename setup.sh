@@ -9,3 +9,4 @@ curl -Ls https://github.com/actions/runner/releases/download/v${GITHUB_RUNNER_VE
 
 chown github:github ./entrypoint.sh
 chmod u+x ./entrypoint.sh
+mv ./entrypoint.sh /home/github/entrypoint.sh
