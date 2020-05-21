@@ -13,13 +13,14 @@ ENV RUNNER_WORKDIR "_work"
 
 
 
+
+
+COPY *.sh ./
+RUN  sh ./install_packages.sh
+RUN  sh -x ./setup.sh  
+
 USER github
 WORKDIR /home/github
-
-
-COPY setup.sh ./setup.sh
-RUN  /bin/bash ./setup.sh  
-COPY --chown=github:github entrypoint.sh ./entrypoint.sh
 
 ENTRYPOINT ["/home/github/entrypoint.sh"]
 
