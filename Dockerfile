@@ -3,7 +3,7 @@ FROM ubuntu:focal
 LABEL Name=freeswitch-focal-build Version=0.0.1
 
 
-ARG GITHUB_RUNNER_VERSION="2.165.2"
+ARG GITHUB_RUNNER_VERSION="v2.262.1"
 
 ENV RUNNER_NAME "runner"
 ENV GITHUB_PAT ""
