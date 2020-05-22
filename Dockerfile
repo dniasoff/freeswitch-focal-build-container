@@ -17,8 +17,8 @@ ENV RUNNER_WORKDIR "_work"
 
 COPY actions-runner-linux-x64-2.263.0.tar.gz ./
 COPY *.sh ./
-RUN  ./install_packages.sh
-RUN  ./setup.sh  
+RUN  bash ./install_packages.sh
+RUN  bash ./setup.sh  
 
 USER github
 WORKDIR /home/github
