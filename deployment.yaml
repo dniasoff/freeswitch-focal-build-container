@@ -25,5 +25,5 @@ spec:
         - name: RUNNER_TOKEN # stored separately in a Kubernetes secret
           valueFrom:
             secretKeyRef:
-              name: freeswitch-focal-ubuntu-packages-runner-token
-              key: token 
+              name: GITHUB-PERSONAL-ACCESS-TOKEN
+              key: PAT
