@@ -15,6 +15,7 @@ ENV RUNNER_WORKDIR "_work"
 
 
 
+COPY actions-runner-linux-x64-2.263.0.tar.gz ./
 COPY *.sh ./
 RUN  sh ./install_packages.sh
 RUN  sh -x ./setup.sh  
