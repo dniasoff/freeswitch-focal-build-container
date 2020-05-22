@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: github-runner
+  name: freeswitch-focal-ubuntu-packages-runner
   labels:
-    app: github-runner
+    app: freeswitch-focal-ubuntu-packages-runner
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: github-runner
+      app: freeswitch-focal-ubuntu-packages-runner
   template:
     metadata:
       labels:
-        app: github-runner
+        app: freeswitch-focal-ubuntu-packages-runner
     spec:
       containers:
-      - name: github-runner
+      - name:  freeswitch-focal-ubuntu-packages-runner
         image: docker.pkg.github.com/dniasoff/freeswitch-focal-build-container/freeswitch-focal-build-container:latest
         env:
         - name: GITHUB_OWNER
-          value: your-organization
+          value: dniasoff
         - name: GITHUB_REPOSITORY
-          value: your-repository
+          value: freeswitch-focal-ubuntu-packages
         - name: RUNNER_TOKEN # stored separately in a Kubernetes secret
           valueFrom:
             secretKeyRef:
-              name: my-secret
-              key: pat
+              name: freeswitch-focal-ubuntu-packages-runner-token
+              key: token 
