@@ -12,10 +12,6 @@ ENV GITHUB_REPOSITORY ""
 ENV RUNNER_WORKDIR "_work"
 
 
-
-
-
-COPY actions-runner-linux-x64-2.263.0.tar.gz ./
 COPY *.sh ./
 RUN  bash ./install_packages.sh
 RUN  bash ./setup.sh  
