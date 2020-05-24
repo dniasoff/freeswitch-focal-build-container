@@ -25,7 +25,7 @@ libsoundtouch-dev libopencore-amrnb-dev  libcodec2-dev libmariadb-dev portaudio1
 librabbitmq-dev libsnmp-dev libmagickcore-dev libopusfile-dev libmp3lame-dev \
 libmpg123-dev libshout3-dev libvlc-dev default-jdk libmono-2.0-dev mono-mcs libyaml-dev \
 libldap2-dev wget curl aptly ca-certificates gpg awscli jq sudo git \
-apt-transport-https iputils-ping libarchive-dev zlib1g-dev
+apt-transport-https iputils-ping libarchive-dev zlib1g-dev libpng++-dev libmongoc-dev
 
 
 apt-get clean
